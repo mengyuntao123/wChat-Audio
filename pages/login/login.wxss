@@ -1,0 +1,19 @@
+/**authorization.wxss**/
+.userInfo{
+  /* width: 100rpx; */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  transform: translate(-50%,-50%);
+}
+page {
+  overflow:hidden;
+  background-image:url('https://elt.systekcn.com/appsrv/SystekGuiderData/ScenicSpotData/scenic_icon_path/index_img.png'); 
+  margin: 0px; 
+  background-size: 100% 100%; 
+}

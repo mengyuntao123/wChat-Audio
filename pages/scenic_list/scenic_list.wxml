@@ -1,0 +1,67 @@
+<!--logs.wxml-->
+
+<view class="header">
+ <view class="header_ct">
+ <view class="he_rt"> 
+   <view class="first"></view>
+  <input type="text" placeholder="搜索博物馆"  bindblur='input'/>
+ <button  class='btn' size='mini'>搜索</button>
+ </view>
+ </view>
+</view>
+<view class="main">  
+
+ <view class="swiper-container">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{duration}}" current="{{swiperCurrent}}"  class="swiper">
+    <block wx:for="{{adList}}" wx:key="unique">
+      <swiper-item>
+        <image src="{{item.iconUrl}}" class="img" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<view>
+  <view class="shop">
+
+      <block  wx:for-item="item" wx:for="{{scenicList}}" wx:key="index" data-index="{{index}}">
+      <view class="shop_center" >
+          <view class="shop_op" data-comment="{{item.comment}}" data-vipType= "{{item.vipType}}" data-scenicCode= "{{item.scenicCode}}" data-scenicName= "{{item.name}}" bindtap="scenicClick">
+         <image class="left"src="{{item.iconUrl}}">
+          </image>
+        <view class="right">
+          <text class="rit_one" >{{item.name}}</text>
+          <view class="rt_di">
+          <text class=".rit_two">点击进入</text>
+          </view>
+       </view>
+          </view>
+
+      </view>
+</block>
+
+  </view>
+
+</view>
+
+</view>
+
+
+ <view id="cover" catchtouchmove='ture' wx:if="{{curt}}">
+
+<view catchtouchmove='ture' class="crent" wx:if="{{curt}}">
+    <view class="crt_center">
+     
+      <image class="img1" src="../../img/1.png" />
+      <image class="dian" bindtap="hiden" src="../../img/2.png" />
+      <view class="ti">
+         <image catchtap="byVip3Click" src="../../img/3.png" />
+         <image catchtap="byVip4Click" src="../../img/5.png" /> 
+      </view>
+      
+    </view>
+</view>
+
+ </view>
+
+

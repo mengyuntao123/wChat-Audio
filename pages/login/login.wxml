@@ -1,0 +1,14 @@
+<!--pages/login/login.wxml-->
+  
+
+  <!-- <view class="userInfo" > -->
+  <button style="width:100%" class="userInfo"  bindtap="loginbtn" ></button>
+
+  <!-- </view> -->
+  <view >
+  <!-- <image src="../../img/entry.png" class='in-image' mode='widthFix' /> -->
+  </view> 
+  
+    
+  
+

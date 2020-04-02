@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/scenic_list/scenic_list",  
+    "pages/login/login",
+    "pages/index/index",
+    "pages/introduce/introduce",
+    "pages/3DView/3DView",  
+    "pages/music/music",
+    "pages/my/my",
+    "pages/cllect/cllect",
+    "pages/itro/itro",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#dddddd",
+    "selectedColor": "#1296db",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./img/home.png",
+        "selectedIconPath": "./img/_home.png"
+      },
+      {
+        "pagePath": "pages/itro/itro",
+        "text": "简介",
+        "iconPath": "./img/intro.png",
+        "selectedIconPath": "./img/_intro.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "selectedIconPath": "./img/_my.png",
+        "iconPath": "./img/my.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

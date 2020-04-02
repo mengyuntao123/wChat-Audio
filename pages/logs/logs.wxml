@@ -1,0 +1,119 @@
+<!--logs.wxml-->
+
+<view class="header">
+ <view class="header_ct">
+ <view class="he_rt"> 
+   <view class="first"></view>
+  <input type="text" placeholder="搜索讲解视频"  bindblur='input'/>
+ <button  class='btn' size='mini'>搜索</button>
+ </view>
+ </view>
+</view>
+<view class="main">  
+
+<view class="swiper-container">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{duration}}" current="{{swiperCurrent}}"  class="swiper">
+    <block wx:for="{{imgUrls}}" wx:key="unique">
+      <swiper-item>
+        <image src="{{item.picUrl}}" class="img" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<view>
+  <view class="shop">
+
+      <block  wx:for-item="item" wx:for="{{exhibitList}}" wx:key="index" data-index="{{index}}">
+      <view class="shop_center" >
+          <view class="shop_op" data-isFree="{{item.isFree}}" data-vipType= "{{item.vipType}}" data-audioUrl= "{{item.audioUrl}}" data-audioName= "{{item.name}}" data-iconUrl= "{{item.iconUrl}}" bindtap="exhibitClick">
+         <!-- <text class="left">{{item.iconUrl}}</text> -->
+         <image class="left"src="{{item.iconUrl}}">
+          </image>
+        <view class="right">
+          <text class="rit_one" >{{item.name}}</text>
+          <view class="rt_di">
+          <text class="rit_three" wx:if="{{item.isFree==1}}">免费</text>
+          <text class=".rit_two"  wx:else>所属{{item.vipName}}</text>
+          </view>
+       </view>
+          </view>
+
+      </view>
+</block>
+
+  </view>
+
+</view>
+
+</view>
+
+
+ <view id="cover" catchtouchmove='ture' wx:if="{{curt}}">
+
+<view catchtouchmove='ture' class="crent" wx:if="{{curt}}">
+    <view class="crt_center">
+     
+      <image class="img1" src="{{payImg}}" />
+      <image class="dian" bindtap="hiden" src="../../img/2.png" />
+      <view class="ti">
+         <image catchtap="byVip3Click" src="../../img/3.png" />
+         <image catchtap="byVip4Click" src="../../img/5.png" /> 
+      </view>
+      
+    </view>
+</view>
+
+ </view>
+
+
+ <!-- 音乐播放器 -->
+ <view class="audioPlayer  {{showView?'header_view_show':'header_view_hide'}} " >
+  <view class='player'>
+    <!-- <image src='{{audiolist[0].coverimg}}' class='audioBack'></image> -->
+    <view class='audioControls'>
+      <view class='flex'>
+        <!-- 背景图片 -->
+       <view class="bag_photo">
+         <image class="photo" src="{{iconUrl}}"></image>
+       </view>
+        <view class="big">
+           <view class='slider'>
+          <slider bindchange='sliderChange'  activeColor='red' block-size="10" value='{{audioTime}}' />
+          <view class='time'>
+          {{showTime1}}/{{showTime2}}
+        </view>
+      </view>  
+<!-- 收藏爱心 -->
+        <view class="shoe">
+             <view class='bottom' catchtap='playAudio'>
+          <!-- 按钮 -->
+          <view wx:if="{{isPlayAudio}}">
+            <image src='../../img/pause.png' />
+          </view>
+          <view wx:else>
+            <image src='../../img/play.png' />
+          </view>
+        </view>
+        <view class="muse">{{audioName}}</view>
+         <view class="rp">
+       
+        
+        <view class="heart" catchtap='hled' >
+          <view wx:if="{{rt}}"> 
+            <image src="../../img/heart.png" />
+            </view>
+          <view wx:else>
+             <image  src="../../img/_heart.png" />
+          </view>
+          
+        </view>
+       
+        </view> 
+        </view>
+
+        </view> 
+      </view>
+    </view>
+  </view>
+</view>

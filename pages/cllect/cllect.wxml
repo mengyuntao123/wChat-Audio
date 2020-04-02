@@ -1,0 +1,22 @@
+<!--pages/cllect/cllect.wxml-->
+ <view class="shop">
+      <view class="shop_center" >
+          <view class="shop_op">
+         <text class="left"></text>
+        <view class="right">
+          <text class="rit_one" >许昌</text>
+          <view class="rt_di">
+          <text class="rit_three">免费</text>
+          <!-- <text class=".rit_two"></text> -->
+          </view>
+         
+       </view>
+          </view>
+
+      </view>
+  </view>
+  <!-- <open-data type="userAvatarUrl"></open-data>  //获取用户头像直接显示在小程序中
+ <open-data type="userNickName" lang="zh_CN"></open-data>  //获取用户昵称直接显示在小程序中 -->
+
+  <!-- <image src="{{img}}" />
+  <button open-type='getUserInfo' lang="zh_CN" bindgetuserinfo="onGotUserInfo"></button> -->

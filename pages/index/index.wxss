@@ -1,0 +1,139 @@
+.returnImg{
+  width: 65rpx;
+  height: 65rpx;
+  position: absolute;
+  top: 20rpx;
+  left: 20rpx;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.returnImg image{
+  width:60rpx;
+  height: 60rpx;
+  z-index: 9999;
+}
+swiper {
+  height: 421.5rpx;
+}
+
+swiper-item image {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-container{
+  position: relative;
+  z-index: 999;
+
+}
+.swiper-container .swiper{
+  height: 420rpx;
+}
+
+.swiper-container .swiper .img{
+  width: 100%;
+  height: 100%;
+
+}
+.big{
+  width: 100%;
+  margin-top: 30rpx;
+}
+.big_text{
+  width: 95%;
+  height: 250rpx;
+  margin: 20rpx auto;
+  /* background; */
+  /* box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28); */
+ 
+}
+.big_center{
+  width: 98%;
+  height: 250rpx;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  border-radius: 20rpx;
+}
+.big_text image{
+  width: 100%;
+  height: 200rpx;
+}
+.big_left{
+  width: 30%;
+  height: 250rpx;
+}
+.big_right{
+  width: 62%;
+}
+.big_right :nth-child(1){
+  display:block;
+  font-size: 36rpx;
+}
+.text2{
+  display:block;
+  margin-top: 18rpx;
+  color: #818181;
+  font-size: 26rpx;
+}
+.big_top{
+  margin-top: 15rpx;
+  width: 100%;
+  height: 50rpx;
+  display: flex;
+  align-items: center;
+}
+.big_top .imi{
+  width: 30rpx;
+  height: 30rpx;
+  /* border: 1px red solid; */
+}
+.big_top text{
+  display: inline-block;
+  /* width: 100rpx; */
+  /* height: 50rpx; */
+  color: #818181;
+  font-size: 26rpx;
+  /* border: 1px red solid; */
+  margin-left: 8rpx;
+}
+.home{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.home image{
+  width: 100%;
+  height: 100%;
+}
+.anim-opacity2{
+  -webkit-animation-name: opacity2;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-direction: alternate;
+
+}
+        @keyframes opacity2{
+          0% {
+            opacity:1;
+         }
+        25% {
+            opacity:1;
+        }
+        50% {
+            opacity: 1;    
+        }
+        75% {
+            opacity:0;
+        }
+        }
+       

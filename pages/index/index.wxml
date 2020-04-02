@@ -1,0 +1,39 @@
+<view  hidden="{{retrunImg}}" class="returnImg" bindtap="retrunBtn">
+<image src="../../img/return.png"></image>
+</view>
+<view class="swiper-container">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{duration}}" current="{{swiperCurrent}}"  class="swiper">
+    <block wx:for="{{imgUrls}}" wx:key="unique">
+      <swiper-item>
+        <image src="{{item.picUrl}}" class="img"/>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<view class="big">
+  <view class="big_text" wx:for="{{texF}}" wx:key="ind" data-index="{{index}}">
+    <navigator hover-class="none" class="big_center" url="../logs/logs?classifyId={{item.classifyId}}">
+      
+      <view class="big_left"><image src="{{item.imgUrl}}"></image></view>
+       <view class="big_right">
+         <text>{{item.classifyName}}</text>
+         <text class="text2">{{item.classifyDesc}}</text>
+         <!-- <text class="text2">{{item.classifyName}}</text> -->
+         <view class="big_top">
+           <!-- <view class="imi"></view> -->
+           <image class="imi" src="../../img/hear.png"></image>
+           <text>每件文物都是有生命的</text>
+         </view>
+      </view>
+    </navigator> 
+     
+     <!-- <text>{{item.text1}}</text> -->
+    
+     
+  </view>
+</view>
+
+<!-- <view class="home anim-opacity2" wx:if="{{pt}}">
+  <image src="http://img.taopic.com/uploads/allimg/110814/6351-110Q401440269.jpg" />
+</view> -->

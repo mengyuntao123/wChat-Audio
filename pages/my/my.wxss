@@ -1,0 +1,142 @@
+/* pages/my.wxss */
+.img_header{
+    width: 100%;
+    /* border: 1px red solid; */
+}
+.imgH_center{
+    width: 95%;
+    /* border: 1px #cccccc solid; */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+.heig_img{
+    width: 100rpx;
+    height: 100rpx;
+    border: 1px white solid;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.heig_img image{
+    width: 100%;
+    height: 100%;
+}
+.et{
+    margin-left: 20rpx;
+    font-size: 30rpx;
+    font-weight: 800;
+}
+.newPerpon{
+    width: 100%;
+    height: 100rpx;
+}
+.newPerpon_center{
+    width: 100%;
+    height: 100rpx;
+    margin: 20rpx auto;
+    border: 1px #cccccc solid;
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+    /* border-radius: 20rpx; */
+
+}
+.limit{
+    width: 100%;
+}
+.limt_center{
+    width: 90%;
+    margin: 20rpx auto;
+}
+.li{
+    width: 100%;
+    height: 120rpx;
+    border-bottom: 1px gainsboro solid;
+    /* margin-top: 15rpx; */
+    line-height: 150rpx;
+    display: flex;
+    justify-content: space-between;
+
+}
+.dat_two{
+    color: red;
+}
+.dat{
+    font-size: 32rpx;
+    font-weight: 500;
+}
+.userId{
+  
+  width: 100%;
+  height: 100%;
+
+}
+
+
+
+.crent{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1000;
+  }
+  .img1{
+    width: 580rpx;
+    height: 680rpx;
+    background: white;
+    border-radius: 30rpx;
+  }
+  .ti{
+    width: 600rpx;
+    display: flex;
+    justify-content: space-around;
+  }
+  .ti image{
+    width: 200rpx;
+    height: 100rpx;
+  }
+  .dian{
+    width: 65rpx;
+    height: 60rpx;
+    position: absolute;
+  }
+
+
+  #cover{ 
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 999;
+    /* display: none; */
+  }
+  .img1 .tx1{
+    display: block;
+    text-align: center;
+    font-size: 30rpx;
+    font-weight: 900;
+    padding-top: 60rpx;
+    padding-bottom: 25rpx;
+  }
+  .img1 .tx2{
+    display: block;
+    text-align: center;
+    font-size: 30rpx;
+    color: #b5adb6;
+  }
+  .click{
+      width: 95%;
+      height: 100rpx;
+      /* border: 1px red solid; */
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      /* margin-top: 390rpx; */
+  }
+  .openD{
+      width: 100%;
+      height: 390rpx;
+  }
+  

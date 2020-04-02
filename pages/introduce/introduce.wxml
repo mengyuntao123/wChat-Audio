@@ -1,0 +1,36 @@
+<view class="swiper-cont container-fill"> 
+  <view class="scroll-fullpage" bindtouchstart="scrollTouchstart" bindtouchend="scrollTouchend" style="transform:translateY(-{{scrollindex*100}}%);margin-top: {{margintop}}px"> 
+  <!-- 第一页 -->
+    <view class="section section01 {{scrollindex==0?'active':''}}" style='background:red'> 
+      <view class='cont'>
+        <view class='cont-body'>
+          <view>one</view>
+        </view>
+      </view>
+    </view> 
+  <!-- 第二页 -->
+    <view class="section section02 {{scrollindex==1?'active':''}}" style='background:pink'> 
+      <view class='cont'>
+        <view class='cont-body'>
+          <view>two</view>
+        </view>
+      </view>
+    </view> 
+  <!-- 第三页 -->
+    <view class="section section03 {{scrollindex==2?'active':''}}" style='background:blue'>  
+      <view class='cont'>
+        <view class='cont-body'>
+          <view>three</view>
+        </view>
+      </view>
+    </view>
+  <!-- 第四页 -->
+    <view class="section section04 {{scrollindex==3?'active':''}}" style='background:green'> 
+      <view class='cont'>
+        <view class='cont-body'>
+          <view>foure</view>
+        </view>
+      </view>
+    </view>
+  </view> 
+</view> 

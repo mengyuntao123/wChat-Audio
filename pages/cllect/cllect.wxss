@@ -1,0 +1,79 @@
+/* pages/cllect/cllect.wxss */
+.shop{
+    width: 100%;
+    margin-top: 30rpx;
+  }
+  .shop_center{ 
+    margin: 0 auto;
+    width: 95%;
+    /* height: 200rpx;  */
+  
+  }
+  .shop_op{
+    width: 95%;
+    height: 200rpx;
+    margin: 20rpx auto;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-around; */
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.28);
+  }
+  .left{
+    display: inline-block;
+    width: 30%;
+    height: 180rpx;
+    border: 1px red solid; 
+    text-align: center;
+    line-height: 180rpx;
+  }
+  .right{
+    width:60%;
+    height: 180rpx;
+    /* border: 1px red solid; */
+    font-weight: 600;
+    margin-left: 30rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  
+  }
+  .rit_two{
+    display: inline-block;
+    width: 100rpx;
+    height: 50rpx;
+    border: 1px #97beff solid;
+    color: #97beff;  
+    text-align: center;
+    border-radius: 20rpx;
+    font-size: 26rpx;
+    line-height: 50rpx;
+  }
+  .rit_to{
+    display: inline-block;
+    width: 100rpx;
+    height: 50rpx;
+    border: 1px red solid;
+    color: red; 
+    text-align: center;
+    border-radius: 20rpx;
+    font-size: 26rpx;
+    line-height: 50rpx;
+    margin-left: 20rpx;
+  }
+  .rt_di{
+    display: flex;
+    align-items: center;
+  }
+  .rit_three{
+    display: inline-block;
+    width: 180rpx;
+    height: 50rpx;
+    border: 1px red solid;
+    color: red; 
+    text-align: center;
+    border-radius: 20rpx;
+    font-size: 26rpx;
+    line-height: 50rpx;
+    margin-left: 20rpx;
+  }
