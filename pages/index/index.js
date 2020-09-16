@@ -33,7 +33,7 @@ Page({
         data: { scenicCode: scenicCode },
         method: 'GET',
         success: function (res) {
-          console.log(res.data.data)
+          console.log(res)
           wx.setStorage({
             key: 'scenicData',
             data: res.data.data,
@@ -56,6 +56,7 @@ Page({
           data: { scenicCode: scenicCode},
           method: 'GET',
           success: function(res){
+            console.log(res)
             that.setData({
               texF:res.data.data
             })
@@ -67,7 +68,7 @@ Page({
 
    },
   retrunBtn:function(){
-     wx.reLaunch({
+    wx.reLaunch({
        url: '../scenic_list/scenic_list',
      })
    },
@@ -79,8 +80,24 @@ Page({
      }, 3000);
    },
    
+   goTovr:function(){
+           
+     wx.navigateTo({
+       url: '../webView/webView',
+     })
+    },
 
+    tickAppointment:function(){
+      wx.navigateTo({
+        url: '../eltWebview/eltWebview',
+      })
+    },
 
+    guidAppion:function(){
+      wx.navigateTo({
+        url: '../guid/guid',
+      })
+    },
    getIndexAd:function(){
      var that = this;
      wx.request({
@@ -91,6 +108,7 @@ Page({
        },
        method: 'GET',
        success: function (res) {
+         console.log(res)
          that.setData({
            imgUrls: res.data.data
          })
@@ -128,12 +146,7 @@ function userLogin(scenicCode) {
                 iv: userdata.iv
               },
               success: function (res) {
-                console.log(res.data.data)
-                wx.setStorage({
-                  key: "userInfo",
-                  data: res.data.data
-                })
-                console.log("登录成功！")
+               console.log(res)
               }
             })
           }

@@ -2,7 +2,7 @@
 <image src="../../img/return.png"></image>
 </view>
 <view class="swiper-container">
-  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{duration}}" current="{{swiperCurrent}}"  class="swiper">
+  <swiper indicator-active-color="orange" indicator-color="white" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{duration}}" current="{{swiperCurrent}}"  class="swiper">
     <block wx:for="{{imgUrls}}" wx:key="unique">
       <swiper-item>
         <image src="{{item.picUrl}}" class="img"/>
@@ -11,20 +11,34 @@
   </swiper>
 </view>
 
+
 <view class="big">
+ <view class="fireMune" >
+        <view  bindtap="guidAppion">
+        <image src="../../img/guid.png"></image>
+        <text>导览预约</text>
+        </view>
+
+        <view bindtap="tickAppointment">
+        <image src="../../img/ticket.png"></image>
+        <text>门票预约</text>
+        </view>
+
+        <view bindtap="goTovr">
+        <image src="../../img/vr.png"></image>
+        <text>全景展示</text>
+        </view>
+
+         </view> 
   <view class="big_text" wx:for="{{texF}}" wx:key="ind" data-index="{{index}}">
     <navigator hover-class="none" class="big_center" url="../logs/logs?classifyId={{item.classifyId}}">
       
-      <view class="big_left"><image src="{{item.imgUrl}}"></image></view>
+      <view class="big_left">
+      <image src="{{item.imgUrl}}"></image>
+      </view>
        <view class="big_right">
-         <text>{{item.classifyName}}</text>
-         <text class="text2">{{item.classifyDesc}}</text>
-         <!-- <text class="text2">{{item.classifyName}}</text> -->
-         <view class="big_top">
-           <!-- <view class="imi"></view> -->
-           <image class="imi" src="../../img/hear.png"></image>
-           <text>每件文物都是有生命的</text>
-         </view>
+         <text style="font-size:32rpx">{{item.classifyName}}</text>
+         <text style="color:red;font-size:30rpx;margin-left:12rpx;">夏朝古代文明</text>
       </view>
     </navigator> 
      

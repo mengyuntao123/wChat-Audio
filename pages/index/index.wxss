@@ -27,11 +27,12 @@ swiper-item image {
 
 .swiper-container{
   position: relative;
-  z-index: 999;
+  z-index: -1;
 
 }
 .swiper-container .swiper{
-  height: 420rpx;
+  height: 460rpx;
+  line-height: 119rpx;
 }
 
 .swiper-container .swiper .img{
@@ -41,67 +42,46 @@ swiper-item image {
 }
 .big{
   width: 100%;
-  margin-top: 30rpx;
+  margin-top: 52rpx;
+  background: white;
+  position: absolute;
+  top: 350rpx;
+  left: 0;
+  border-top-left-radius: 32rpx;
+  border-top-right-radius: 32rpx;
+  z-index: 1;
 }
 .big_text{
   width: 95%;
-  height: 250rpx;
-  margin: 20rpx auto;
+  height:390rpx;
+  margin: 0rpx auto;
   /* background; */
   /* box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28); */
- 
+  padding-bottom: 108rpx;
 }
 .big_center{
-  width: 98%;
-  height: 250rpx;
+  width: 90%;
+  height: 390rpx;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  /* align-items: center; */
-  border-radius: 20rpx;
+  background: #f2f2f2;
 }
 .big_text image{
   width: 100%;
-  height: 200rpx;
+  height: 100%;
+  border-radius: 23rpx;
 }
 .big_left{
-  width: 30%;
-  height: 250rpx;
+  width: 100%;
+  height: 390rpx;
 }
 .big_right{
-  width: 62%;
-}
-.big_right :nth-child(1){
-  display:block;
-  font-size: 36rpx;
-}
-.text2{
-  display:block;
-  margin-top: 18rpx;
-  color: #818181;
-  font-size: 26rpx;
-}
-.big_top{
-  margin-top: 15rpx;
   width: 100%;
-  height: 50rpx;
-  display: flex;
-  align-items: center;
+  height: 60rpx;
+  padding-top: 30rpx;
 }
-.big_top .imi{
-  width: 30rpx;
-  height: 30rpx;
-  /* border: 1px red solid; */
-}
-.big_top text{
-  display: inline-block;
-  /* width: 100rpx; */
-  /* height: 50rpx; */
-  color: #818181;
-  font-size: 26rpx;
-  /* border: 1px red solid; */
-  margin-left: 8rpx;
-}
+
+
+
 .home{
   width: 100%;
   height: 100%;
@@ -137,3 +117,34 @@ swiper-item image {
         }
         }
        
+
+
+
+        .fireMune{
+          width: 90%;
+          height: 99rpx;
+          margin: 39rpx auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: #ffffff;
+        }
+
+        .fireMune view{
+          width: 90%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: center;
+        }
+        .fireMune image{
+          width: 60rpx;
+          height: 60rpx;
+        }
+
+        .fireMune text{
+          margin-left: 12rpx;
+          margin-right: 12rpx;
+          margin-top: 12rpx;
+          font-size: 26rpx;
+        }

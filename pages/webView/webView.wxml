@@ -1,2 +1,2 @@
 <!--pages/webView/webView.wxml-->
-<text>pages/webView/webView.wxml</text>
+<web-view src="https://cloud11.3dnest.cn/play/index.html?m=261d61d6_4s3e_b6f9_1&o=1"></web-view>

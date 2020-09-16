@@ -4,6 +4,9 @@
   margin-top: 100rpx;
 
 }
+.active{
+  color:red;
+}
 .header{
   width: 100%;
   height: 82rpx;
@@ -46,8 +49,9 @@
 
 
 
-swiper {
-  height: 421.5rpx;
+.swiper {
+  height: 460rpx;
+  line-height: 119rpx;
 }
 
 swiper-item image {
@@ -57,6 +61,7 @@ swiper-item image {
 
 .swiper-container{
   position: relative;
+  z-index: -1;
 
 }
 .swiper-container .swiper{
@@ -71,86 +76,85 @@ swiper-item image {
 
 
 
-
-.shop{
-  width: 100%;
+.bnm{
+  position: absolute;
+  top: 439rpx;
+  left: 0;
+  border-top-left-radius: 32rpx;
+  border-top-right-radius: 32rpx;
+  z-index: 1;
   margin-top: 30rpx;
+  background: white;
+}
+.shop{
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 .shop_center{ 
-  margin: 0 auto;
-  width: 95%;
+  /* margin: 0 auto; */
+  width: 49%;
   /* height: 200rpx;  */
+  /* border-radius: 23rpx; */
 
 }
+.shop_center:after{
+  content: "";
+  width: 49%;
+}
 .shop_op{
-  width: 95%;
-  height: 200rpx;
+  width: 97%;
+  height: 260rpx;
   margin: 20rpx auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  /* justify-content: space-around; */
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.28);
+  border-radius: 23rpx;
+  position: relative;
+}
+
+.rt_di{
+  position: absolute;
+  right: 0;
+  top: 122rpx;
+}
+.rt_di text{
+  display: block;
+  color: white;
+  padding: 12rpx;
+  background: red;
+  font-size: 23rpx;
+  border-top-left-radius: 23rpx;
+  border-bottom-left-radius: 23rpx;
 }
 .left{
   display: inline-block;
-  width: 30%;
+  width: 100%;
   height: 180rpx;
   /* border: 1px red solid;  */
   text-align: center;
   line-height: 180rpx;
+  border-top-left-radius: 23rpx;
+  border-top-right-radius: 23rpx;
 }
+
+
+
 .right{
-  width:60%;
-  height: 180rpx;
-  /* border: 1px red solid; */
-  font-weight: 600;
-  margin-left: 30rpx;
+  width: 100%;
+  height: 60rpx;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-
-}
-.rit_two{
-  display: inline-block;
-  width: 200rpx;
-  height: 50rpx;
-  border: 1px #97beff solid;
-  color: #97beff;  
-  text-align: center;
-  border-radius: 20rpx;
-  font-size: 26rpx;
-  line-height: 50rpx;
-}
-.rit_to{
-  display: inline-block;
-  width: 100rpx;
-  height: 50rpx;
-  border: 1px red solid;
-  color: red; 
-  text-align: center;
-  border-radius: 20rpx;
-  font-size: 26rpx;
-  line-height: 50rpx;
-  margin-left: 20rpx;
-}
-.rt_di{
-  display: flex;
+  justify-content: center;
   align-items: center;
 }
-.rit_three{
-  display: inline-block;
-  width: 180rpx;
-  height: 50rpx;
-  /* border: 1px red solid; */
-  color: red; 
-  text-align: center;
-  border-radius: 20rpx;
-  font-size: 26rpx;
-  line-height: 50rpx;
-  margin-left: 20rpx;
-}
 
+.right text{
+  font-size: 26rpx;
+}
 
 
 
@@ -198,7 +202,60 @@ swiper-item image {
   display: block;
 }
 
+.fireMune{
+  width: 90%;
+  height: 50rpx;
+  margin: 39rpx auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+}
+.fireMune image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.fireMune text{
+  margin-left: 12rpx;
+  margin-right: 12rpx;
+}
+
+.handleRight{
+  transform: rotate(180deg)
+}
+
+.article{
+  width: 95%;
+  margin: 90rpx auto;
+  color: white;
+  /* border:1px #ccc solid; */
+  border-radius: 12rpx;
+  height: 360rpx;
+  overflow: scroll;
+}
+
+.article text{
+  display: block;
+  text-align: center;
+
+}
+
+.article view{
+  text-indent: 2em;
+  text-align: justify;
+}
+
+.arrow{
+  width: 100%;
+  height: 60rpx;
+  position: relative;
+}
 
 
-
- 
+.arrow image{
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  left: 46%;
+  top: 15rpx;
+}

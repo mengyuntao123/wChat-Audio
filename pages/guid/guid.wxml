@@ -1,0 +1,2 @@
+<!--pages/guid.wxml-->
+<web-view src="https://xcx.systekcn.com:1443/appsrv/appointment/index.html"></web-view>

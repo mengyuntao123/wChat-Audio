@@ -2,6 +2,8 @@
 .img_header{
     width: 100%;
     /* border: 1px red solid; */
+    height: 300rpx;
+    background: #b3292c;
 }
 .imgH_center{
     width: 95%;
@@ -9,6 +11,7 @@
     margin: 0 auto;
     display: flex;
     align-items: center;
+    padding-top:32rpx;
 }
 .heig_img{
     width: 100rpx;
@@ -24,7 +27,11 @@
 .et{
     margin-left: 20rpx;
     font-size: 30rpx;
-    font-weight: 800;
+    font-weight: 600;
+    border:1px white solid;
+    border-radius: 26rpx;
+    padding: 12rpx;
+    color: white;
 }
 .newPerpon{
     width: 100%;

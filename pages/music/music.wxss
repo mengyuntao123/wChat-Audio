@@ -1,95 +1,185 @@
 
-.iconfont{
-  color: red;
-}
 
-.audioPlayer{
+.wr{
   width: 100%;
-  height:150rpx ;
   position:fixed;
   bottom: 0;
   left: 0;
-}
-.audioControls{
-  width: 100%;
-}
-.audioBack{
-  width: 100%;
-}
-.flex{
-  width: 100%;
-  height: 150rpx;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: flex;
-  align-items: center;
-
-}
-.bag_photo{
-  width: 20%;
-  height: 100%;
-  border: 1px #cccccc solid;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.photo{
-  width: 120rpx;
-  height:120rpx;
-  border: 1px #cccccc solid;
-}
-
-.bottom image{
-  width: 50rpx;
-  height: 50rpx;
-}
-.rp{
-  height: 50rpx;
-  display: flex;
- 
-
-}
-.rp image{
-  width: 50rpx;
-  height: 50rpx;
-}
-.slider{
-  width: 100%;
-  height: 50rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.slider slider{
-  width: 520rpx;
-}
-.time{
-  color: #ccc;
-  font-size: 25rpx;
-}
-.muse{
-  color: #ccc;
-}
-.big{
-  width: 75%;
-  height: 100%;
+  
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.botom{
+  width: 100%;
+  height: 800rpx;
+  /* border: 1px red solid; */background-color: rgba(0, 0, 0, 0.8);
+}
+.audioPlayer{
+  width: 90%;
+  margin: 0 auto;
 
 }
-.rp text{
-  color: #ccc;
-  font-size: 25rpx;
-}
-.shoe{
-  width: 100%;
+
+.flex{
+  width:100%;
+  /* border:1px red solid; */
   display: flex;
-  height: 50rpx;
-  align-items: center;
-  margin-top: 10rpx;
-  justify-content:space-around;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: flex-start; */
+  /* margin-top: 50rpx; */
+  height: 320rpx;
+
 }
-.heart{
-  margin-left: 15rpx;
-  margin-right: 15rpx;
-} 
+
+
+.bag_photo{
+  width: 150rpx;
+  height: 150rpx;
+  position: relative;
+  margin: 0 auto;
+}
+
+.bag_photo image{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+/* 95 63 */
+.slider{
+  width:95%;
+  height: 30rpx;
+  /* border:1px red solid; */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+}
+
+.sliderWidthFir{
+  width: 85% !important;
+}
+/* 80 39 */
+.slider slider{
+  width: 80%;   
+ 
+}
+
+.sliderWidth{
+  width: 39% !important;
+}
+
+.shoe{
+  width: 60%;
+  height: 30rpx;
+  /* border: 1px red solid; */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  /* align-items: center; */
+  margin-top: 20rpx;
+}
+
+
+
+.shoe image{
+   width: 75rpx;
+   height: 75rpx;
+}
+
+
+.muse{
+  color:white;
+  margin-top: 20rpx;
+  margin-bottom: 19rpx;
+  text-align: center;
+}
+
+
+
+.music_on{
+  animation: audio-rotate 8s linear infinite;
+}
+
+@keyframes audio-rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+ 
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+
+
+.articleNone{
+  display: none;
+}
+
+.botHegiht{
+  height: 160rpx !important;
+
+}
+
+
+
+.flexHegiht{
+  height: 160rpx !important;
+  flex-direction: row !important;
+}
+
+.flexty{
+  width: 256px;
+}
+
+.ull{
+  width: 120rpx;
+  height: 50rpx;
+  margin: 0px auto;
+  /* border: 1px red solid; */
+  list-style: none;
+  display: flex;
+   justify-content: center;
+   align-items: flex-end;
+   position: absolute;
+   top:50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+}
+
+
+
+.ull view{
+  width: 10rpx;
+  height: 10rpx;
+  background:#01c362;
+  float: left;
+  margin-left: 5rpx;
+}
+  .li1{
+ animation: audio .5s linear .1s infinite alternate;
+}
+.li2{
+ animation: audio .5s linear .2s infinite alternate;
+}
+.li3{
+ animation: audio .5s linear .3s infinite alternate;
+}
+   .li5{
+ animation: audio .5s linear .2s infinite alternate;
+}
+.li6{
+ animation: audio .5s linear .3s infinite alternate;
+}
+.li7{
+ animation: audio .5s linear .1s infinite alternate;
+}
+
+@keyframes audio{
+ from{height: 2rpx;}
+ to{height: 30rpx;}
+}

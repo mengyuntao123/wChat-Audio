@@ -8,7 +8,7 @@
 </view> 
 <!-- 获取用户昵称直接显示在小程序中 -->
  <open-data  hidden="{{!isLogin}}" class="et" type="userNickName" lang="zh_CN"></open-data> 
-<text class="et" hidden="{{isLogin}}" bindtap="loginBtn" >点击登录账号</text>
+ <text class="et" hidden="{{isLogin}}" bindtap="loginBtn" >登录/注册</text>
 </view>
 </view>
 

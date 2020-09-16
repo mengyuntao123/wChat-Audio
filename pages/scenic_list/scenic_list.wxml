@@ -12,7 +12,7 @@
 <view class="main">  
 
  <view class="swiper-container">
-  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{duration}}" current="{{swiperCurrent}}"  class="swiper">
+  <swiper indicator-active-color="orange" indicator-color="white" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{duration}}" current="{{swiperCurrent}}"  class="swiper">
     <block wx:for="{{adList}}" wx:key="unique">
       <swiper-item>
         <image src="{{item.iconUrl}}" class="img" />
@@ -23,23 +23,43 @@
 
 <view>
   <view class="shop">
-
+         <view class="fireMune">
+         <image src="../../img/fire.png"></image>
+         <text>热门博物馆</text>
+         <image src="../../img/fire.png"></image>
+         </view> 
+         <view class="block">
       <block  wx:for-item="item" wx:for="{{scenicList}}" wx:key="index" data-index="{{index}}">
+     
       <view class="shop_center" >
-          <view class="shop_op" data-comment="{{item.comment}}" data-vipType= "{{item.vipType}}" data-scenicCode= "{{item.scenicCode}}" data-scenicName= "{{item.name}}" bindtap="scenicClick">
+     
+        <view class="shop_op" data-comment="{{item.comment}}" data-vipType= "{{item.vipType}}" data-scenicCode= "{{item.scenicCode}}" data-scenicName= "{{item.name}}" bindtap="scenicClick">
+         
          <image class="left"src="{{item.iconUrl}}">
           </image>
-        <view class="right">
           <text class="rit_one" >{{item.name}}</text>
-          <view class="rt_di">
-          <text class=".rit_two">点击进入</text>
           </view>
+
+       <view class="bottom">
+  
+        <view class="map">
+        <image src="../../img/map.png"></image>
+        <text>中国  河南</text>
+        </view>
+
+        <view class="area">
+         <text>5A景区</text>
+         <text>夏商古代文明</text>
+         <span style="margin-left:12rpx;"> |</span>
+         <span style="color:red">￥10元</span>
+        </view>
+       
        </view>
-          </view>
 
       </view>
+     
 </block>
-
+ </view>
   </view>
 
 </view>

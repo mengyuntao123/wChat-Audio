@@ -7,7 +7,7 @@ Page({
   data: {
     swiperCurrent: 0,
     indicatorDots: true,
-    autoplay: true,
+    autoplay: false,
     interval: 3000,
     duration: 800,
     circular: true,
@@ -61,6 +61,7 @@ Page({
      url: 'https://elt.systekcn.com/appsrv/api/Scenic/getAllScenic',
      data: {},
      success: function (res) {
+       console.log(res.data.data)
        that.setData({
         scenicList:res.data.data,
          adList:res.data.data

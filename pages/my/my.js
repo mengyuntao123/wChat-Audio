@@ -86,12 +86,9 @@ Page({
     wx.getStorage({
       key: 'userInfo',
       success: function (res) {
-
-        console.log(res.data)
+        console.log(res)
         that.setData({
-        
-            isLogin: true,
-          
+          isLogin: true,
           userId: res.data.id,
           nickName: res.data.nickName,
           avatar: res.data.avatar,
@@ -178,6 +175,7 @@ Page({
     wx.getStorage({
       key: 'scenicData',
       success: function (res) {
+        console.log(res)
         that.setData({
           scenicCode: res.data.scenicCode
         })
@@ -187,12 +185,13 @@ Page({
     var that = this;
     wx.login({
       success: function (res) {
-
+        console.log(res)
         if (res.code) {
           wx.getUserInfo({
             success: function (userdata) {
+              console.log(userdata)
               wx.request({
-                 url: 'https://elt.systekcn.com/appsrv/api/wechatUser/get_openId_byCode',
+                 url: 'https://elt.systekcn.com/appsrv1/api/wechatUser/get_openId_byCode',
                // url: 'http://localhost:8081/appsrv/api/wechatUser/get_openId_byCode',
                 data: {
                   scenicCode: that.data.scenicCode,
@@ -201,7 +200,7 @@ Page({
                   iv: userdata.iv
                 },
                 success: function (res) {
-                  console.log(res.data.data)
+                  console.log(res)
                   wx.setStorage({
                     key: "userInfo",
                     data: res.data.data

@@ -23,15 +23,19 @@
 
 <view>
   <view class="shop">
-
+<view class="fireMune">
+         <image src="../../img/fire.png"></image>
+         <text>讲解列表</text>
+         <image src="../../img/fire.png"></image>
+         </view> 
       <block  wx:for-item="item" wx:for="{{exhibitList}}" wx:key="index" data-index="{{index}}">
       <view class="shop_center" >
-          <view class="shop_op" data-isFree="{{item.isFree}}" data-vipType= "{{item.vipType}}" data-audioUrl= "{{item.audioUrl}}" data-audioName= "{{item.name}}" data-iconUrl= "{{item.iconUrl}}" bindtap="exhibitClick">
+          <view class="shop_op {{activeIndex==index?'active':''}}" data-isFree="{{item.isFree}}" data-vipType= "{{item.vipType}}" data-audioUrl= "{{item.audioUrl}}" data-audioName= "{{item.audioName}}" data-iconUrl= "{{item.iconUrl}}" data-index="{{index}}"  bindtap="exhibitClick">
          <!-- <text class="left">{{item.iconUrl}}</text> -->
          <image class="left"src="{{item.iconUrl}}">
           </image>
         <view class="right">
-          <text class="rit_one" >{{item.name}}</text>
+          <text class="rit_one"  >{{item.name}}</text>
           <view class="rt_di">
           <text class="rit_three" wx:if="{{item.isFree==1}}">免费</text>
           <text class=".rit_two"  wx:else>所属{{item.vipName}}</text>
@@ -57,7 +61,7 @@
       <image class="img1" src="{{payImg}}" />
       <image class="dian" bindtap="hiden" src="../../img/2.png" />
       <view class="ti">
-         <image catchtap="byVip3Click" src="../../img/3.png" />
+         <image catchtap="byVip3Click" style="border-radius: 36rpx;" src="../../img/3.png" />
          <image catchtap="byVip4Click" src="../../img/5.png" /> 
       </view>
       
@@ -68,52 +72,88 @@
 
 
  <!-- 音乐播放器 -->
- <view class="audioPlayer  {{showView?'header_view_show':'header_view_hide'}} " >
-  <view class='player'>
-    <!-- <image src='{{audiolist[0].coverimg}}' class='audioBack'></image> -->
-    <view class='audioControls'>
-      <view class='flex'>
+ <view class="wr {{showView?'header_view_show':'header_view_hide'}}">
+ <view wx:if="{{imgPla}}"  class="arrow" bindtap="hidenTop" > <image style="transform: rotate(180deg);   "  src="../../img/topArrow.png"/></view>
+ <view wx:else class="arrow" bindtap="hidenimg" > <image src="../../img/topArrow.png"/> </view>
+ 
+ <view class="botom {{articleHea?'':'botHegiht'}} " >
+
+<view  class="audioPlayer  {{}} " >
+      <view class="flex {{articleHea?'':'flexHegiht'}}">
         <!-- 背景图片 -->
-       <view class="bag_photo">
+       <view class="bag_photo {{ articleHea?'':'articleNone' }}">
          <image class="photo" src="{{iconUrl}}"></image>
-       </view>
-        <view class="big">
-           <view class='slider'>
+         <view class="ull">
+              <view class=" {{isPlayAudio?'li1':''}}  "></view>
+              <view class=" {{isPlayAudio?'li2':''}} "></view>
+              <view class=" {{isPlayAudio?'li3':''}} "></view>
+              <view class=" {{isPlayAudio?'li5':''}} "></view>
+              <view class=" {{isPlayAudio?'li6':''}} "></view>
+              <view class=" {{isPlayAudio?'1li7':''}} "></view>
+         </view>
+       </view> 
+       
+       <view class="bag_photo {{ articleHea?'articleNone':'' }}" catchtap='playAudio'>
+         <image class="photo" src="{{iconUrl}}"></image>
+     
+         <view class="ull" wx:if="{{isPlayAudio}}">
+              <view class=" {{isPlayAudio?'li1':''}}  "></view>
+              <view class=" {{isPlayAudio?'li2':''}} "></view>
+              <view class=" {{isPlayAudio?'li3':''}} "></view>
+              <view class=" {{isPlayAudio?'li5':''}} "></view>
+              <view class=" {{isPlayAudio?'li6':''}} "></view>
+              <view class=" {{isPlayAudio?'1li7':''}} "></view>
+         </view>
+        
+            <image wx:else style=" width:75rpx;height:75rpx; position: absolute;top:50%;left: 50%;transform: translate(-50%,-50%);" src='../../img/play.png' />
+          
+       
+       </view> 
+
+    <view class="flex_fg  {{ articleHea?'':'flexty' }} ">
+      <view class="muse"> 正在播放： {{audioName}}</view>
+      <view class="slider {{ articleHea?'':'sliderWidthFir' }} ">
+         <view class='time'>
+          {{showTime1}}
+        </view>
           <slider bindchange='sliderChange'  activeColor='red' block-size="10" value='{{audioTime}}' />
           <view class='time'>
-          {{showTime1}}/{{showTime2}}
+          {{showTime2}}
         </view>
-      </view>  
-<!-- 收藏爱心 -->
-        <view class="shoe">
-             <view class='bottom' catchtap='playAudio'>
-          <!-- 按钮 -->
+       </view>  
+   </view>
+
+
+        <view class="shoe {{ articleHea?'':'articleNone' }}  ">
+          
+        <view style="color:white; width:60rpx;height:60rpx; " bindtap="handleLeft"><image src="../../img/left.png"/></view>
+
+        <view class='bottom' catchtap='playAudio'>
           <view wx:if="{{isPlayAudio}}">
             <image src='../../img/pause.png' />
           </view>
           <view wx:else>
             <image src='../../img/play.png' />
           </view>
-        </view>
-        <view class="muse">{{audioName}}</view>
-         <view class="rp">
-       
-        
-        <view class="heart" catchtap='hled' >
-          <view wx:if="{{rt}}"> 
-            <image src="../../img/heart.png" />
-            </view>
-          <view wx:else>
-             <image  src="../../img/_heart.png" />
-          </view>
-          
-        </view>
-       
         </view> 
+        <view style="color:white; width:60rpx;height:60rpx;"  bindtap="handleRight" ><image class="handleRight"  src="../../img/left.png"/></view>
+       
         </view>
 
-        </view> 
+      
       </view>
-    </view>
-  </view>
+  
+<view class="article {{ articleHea?'':'articleNone' }}">
+     <text>二里头简介</text>
+      <view>
+      道可道，非常道；名可名，非常名。无名，天地之始，有名，万物之母。故常无欲，以观其妙，常有欲，以观其徼。此两者，同出而异名，同谓之玄，玄之又玄，众妙之门。 道可道，非常道；名可名，非常名。无名，天地之始，有名，万物之母。故常无欲，以观其妙，常有欲，以观其徼。此两者，同出而异名，同谓之玄，玄之又玄，众妙之门。 道可道，非常道；名可名，非常名。无名，天地之始，有名，万物之母。故常无欲，以观其妙，常有欲，以观其徼。此两者，同出而异名，同谓之玄，玄之又玄，众妙之门。
+      
+      </view>
 </view>
+</view>
+
+
+ </view>
+
+
+ </view>

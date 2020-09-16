@@ -1,15 +1,20 @@
 {
   "pages": [
-    "pages/scenic_list/scenic_list",  
+    
+    "pages/scenic_list/scenic_list",
     "pages/login/login",
     "pages/index/index",
     "pages/introduce/introduce",
-    "pages/3DView/3DView",  
+    "pages/3DView/3DView",
     "pages/music/music",
     "pages/my/my",
     "pages/cllect/cllect",
     "pages/itro/itro",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/webView/webView",
+    "pages/eltWebview/eltWebview",
+    "pages/guid/guid"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,8 +23,8 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color": "#dddddd",
-    "selectedColor": "#1296db",
+    "color": "#202020",
+    "selectedColor": "#b3292c",
     "backgroundColor": "#fff",
     "borderStyle": "black",
     "list": [
@@ -37,7 +42,7 @@
       },
       {
         "pagePath": "pages/my/my",
-        "text": "我的",
+        "text": "登录",
         "selectedIconPath": "./img/_my.png",
         "iconPath": "./img/my.png"
       }

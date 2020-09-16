@@ -14,8 +14,10 @@ Page({
     circular: true,
     curt: false,
     freet: false,
+    index:'',
     imgUrls: [],
     rt: true,
+    activeIndex:-1,
 
     exhibitList: [],  //资源列表
 
@@ -33,7 +35,7 @@ Page({
 
 
     showView: false,   //下方播放控件是否显示
-
+    animateActive:false,
     vipType:0, //用户的VipType
 
     
@@ -42,7 +44,9 @@ Page({
     hiddenLogin: true,
     scenicCode:null,  //博物馆code
 
-    payImg:null //支付时的弹出广告地址
+    payImg:null, //支付时的弹出广告地址
+    imgPla:true,
+    articleHea:true
 
   },
 
@@ -85,8 +89,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+   
     let that = this;
+    
     //加载上图广告
     wx.getStorage({
       key: 'adList',
@@ -101,6 +106,9 @@ Page({
     wx.getStorage({
       key: 'userInfo',
       success: function (res) {
+        if(res.data=="undefined"){
+          console.log(123)
+        }
         that.setData({
           vipType: res.data.vipType,
         })
@@ -133,20 +141,25 @@ Page({
    * 点击单个资源事件
    */
   exhibitClick:function(e){
-
+   
+    let index=e.currentTarget.dataset.index;
+    // console.log(this.data.exhibitList)
     var that = this;
     //获取音频资源链接
-    let audiourl = e.currentTarget.dataset.audiourl;
+    let audiourl = this.data.exhibitList[index].audioUrl;
+    // console.log(audiourl)
     let iconUrl = e.currentTarget.dataset.iconurl;
-    let audioName = e.currentTarget.dataset.audioname;
-
+    let audioName = this.data.exhibitList[index].name;
+       console.log(this.data.exhibitList[index])
     //判断当前音频是否为免费音频
     let isFree = e.currentTarget.dataset.isfree;
     let audioVipType = e.currentTarget.dataset.viptype;
+  
     if (isFree == 1 || audioVipType <= this.data.vipType){
        //初始化播放参数
       this.setData({
         audioSrc: audiourl,
+        index:index,
         iconUrl:iconUrl,
         audioName: audioName,
         showTime1: '00:00',
@@ -156,6 +169,8 @@ Page({
         isPlayAudio: false,
         audioSeek: 0, //音频当前时间
         isPlayAudio: false,
+        activeIndex:index,
+       
       })
 
      this.playAudio();
@@ -167,15 +182,35 @@ Page({
       wx.getStorage({
         key: 'userInfo',
         success: function (res) {
-          console.log(res.data)
+         
           //不是免费音频跳转购买vip页面
-          that.showUp()
+          that.showUp();
+          console.log(res.data==undefined);
+          if(res.data==undefined){
+           
+            wx.showModal({
+              content: '您还没有登录，请到登录页面进行登录',
+              success(res) {
+               if (res.confirm) {
+                wx.switchTab({
+                  url: '/pages/my/my',
+                })
+               } else if (res.cancel) {
+                console.log('用户点击取消')
+               }
+              }
+             })
+
+          }
         },
         fail:function(res){
           //获取用户失败
+         console.log(res)
+          that.popConfirm()
+
           console.log("获取用户失败，请重新登录！")
           //去往我的页面进行登录
-          that.popConfirm()
+         
         }
       });
 
@@ -189,20 +224,198 @@ Page({
 
     }
   },
+    // 点击上一首
+  handleLeft:function(){
+   
+    let that=this;
+    let id= parseInt(that.data.index)  ;
+    let num= id-1;
+    console.log(num) 
+    if(num-1<-1){
+      wx.showToast({
+        title: '已到第一个',
+      })
+    }
+    let aUrl=that.data.exhibitList[num].audioUrl
+    let iUrl=that.data.exhibitList[num].iconUrl;
+    // console.log(iUrl)
+    let aName=that.data.exhibitList[num].name;
+    let iFre=that.data.exhibitList[num].isFree;
+    let AvipType=that.data.exhibitList[num].vipType;
+    // console.log(aName,iFre,iUrl)
+   
+   
+    if(iFre == 1 || AvipType <= this.data.vipType){
+      this.setData({
+        audioSrc: aUrl,
+        index:num,
+        iconUrl:iUrl,
+        audioName: aName,
+        showTime1: '00:00',
+        showTime2: '00:00',
+        durationIntval: 0,
+        audioTime: 0, //进度条变化的值
+        isPlayAudio: false,
+        audioSeek: 0, //音频当前时间
+        isPlayAudio: false,
+        activeIndex:num,
+       
+      })
+      this.playAudio();
+      this.setData({
+        showView:true
+      })
+    }else{
+      wx.getStorage({
+        key: 'userInfo',
+        success: function (res) {
+         
+          //不是免费音频跳转购买vip页面
+          that.showUp();
+          console.log(res.data==undefined);
+          if(res.data==undefined){
+           
+            wx.showModal({
+              content: '您还没有登录，请到登录页面进行登录',
+              success(res) {
+               if (res.confirm) {
+                wx.switchTab({
+                  url: '/pages/my/my',
+                })
+               } else if (res.cancel) {
+                console.log('用户点击取消')
+               }
+              }
+             })
 
-  popConfirm: function () {
-    wx.showModal({
-      title: '提示',
-      content: '您还没有登录，是否跳转到登录页面进行登录？',
-      success: function (res) {
-        if (res.confirm) {
-          wx.reLaunch({
-            url: '../my/my',
-          })
-        } else {
+          }
+        },
+        fail:function(res){
+          //获取用户失败
+         console.log(res)
+          that.popConfirm()
+
+          console.log("获取用户失败，请重新登录！")
+          //去往我的页面进行登录
          
         }
-      }
+      });
+
+    }
+  },
+ 
+
+  // 点击下一首
+  handleRight:function(){
+        // console.log("右")
+        let that=this;
+    let id= parseInt(that.data.index)  ;
+    let num= id+1;
+    console.log(num) 
+    if(num+1>this.data.exhibitList.length - 1){
+      wx.showToast({
+        title: '已到最后一个',
+      })
+    }
+    let aUrl=that.data.exhibitList[num].audioUrl
+    let iUrl=that.data.exhibitList[num].iconUrl;
+    // console.log(iUrl)
+    let aName=that.data.exhibitList[num].name;
+    let iFre=that.data.exhibitList[num].isFree;
+    let AvipType=that.data.exhibitList[num].vipType;
+    // console.log(aName,iFre,iUrl)
+   
+   
+    if(iFre == 1 || AvipType <= this.data.vipType){
+      this.setData({
+        audioSrc: aUrl,
+        index:num,
+        iconUrl:iUrl,
+        audioName: aName,
+        showTime1: '00:00',
+        showTime2: '00:00',
+        durationIntval: 0,
+        audioTime: 0, //进度条变化的值
+        isPlayAudio: false,
+        audioSeek: 0, //音频当前时间
+        isPlayAudio: false,
+        activeIndex:num,
+       
+      })
+     
+      this.playAudio();
+      this.setData({
+        showView:true
+      })
+    }else{
+      wx.getStorage({
+        key: 'userInfo',
+        success: function (res) {
+         
+          //不是免费音频跳转购买vip页面
+          that.showUp();
+          console.log(res.data==undefined);
+          if(res.data==undefined){
+           
+            wx.showModal({
+              content: '您还没有登录，请到登录页面进行登录',
+              success(res) {
+               if (res.confirm) {
+                wx.switchTab({
+                  url: '/pages/my/my',
+                })
+               } else if (res.cancel) {
+                console.log('用户点击取消')
+               }
+              }
+             })
+
+          }
+        },
+        fail:function(res){
+          //获取用户失败
+         console.log(res)
+          that.popConfirm()
+
+          console.log("获取用户失败，请重新登录！")
+          //去往我的页面进行登录
+         
+        }
+      });
+
+    }
+  },
+
+
+
+  hidenimg:function(){
+
+    let imgPlaj=this.data.imgPla;
+    let articleHeapt=this.data.articleHea
+    this.setData({
+      imgPla:!imgPlaj,
+      articleHea:true
+    })
+  },
+
+
+  hidenTop:function(){
+    
+    let imgPlaj=this.data.imgPla;
+    let articleHeapt=this.data.articleHea
+      this.setData({
+       
+        imgPla:!imgPlaj,
+        articleHea:false
+      })
+  },
+
+
+  popConfirm: function () {
+    wx.showToast({
+      title: '您还没有登录，请到登录页面进行登录',
+      icon: "none",
+      duration: 2000
     })
   },
 
@@ -211,21 +424,9 @@ Page({
    */
   byVip3Click:function(){
     var that = this;
-    wx.getStorage({
-      key: 'userInfo',
-      success: function (user) {
-        //获取当前用户的VIP等级
-        if (user.data.vipType > 3 || user.data.vipType == 3 ){
-          wx.showToast({
-            title: '您已经购买过，不需要重复订购~',
-            icon: "none" ,
-            duration: 2000
-          })
-        }else{
-          that.takeOrder(3)
-        }
-      }
-    })   
+    that.setData({
+      curt: false
+    })
   },
 
   /**
@@ -265,10 +466,10 @@ Page({
     wx.getStorage({
       key: 'userInfo',
       success: function (user) {
-        console.log(user.data)
+        console.log(user)
         wx.request({
           // url: 'https://systek.imdo.co/appsrv/api/PayOrder/takeOrder',
-          url: 'https://elt.systekcn.com/appsrv/api/PayOrder/takeOrder',
+          url: 'https://elt.systekcn.com/appsrv1/api/PayOrder/takeOrder',
           data:
           {
             weChatOpenId: user.data.weChatOpenId,
@@ -277,7 +478,7 @@ Page({
           },
           method: 'GET',
           success: function (res) {
-            console.log(res.data.data)
+            console.log(res)
             wx.requestPayment({
               'timeStamp': res.data.data.timeStamp,
               'nonceStr': res.data.data.nonceStr,
@@ -336,6 +537,7 @@ Page({
     var t = this;
     //设置src
     innerAudioContext.src = this.data.audiosrc;
+    
     innerAudioContext.onCanplay(() => {
       //初始化duration
       innerAudioContext.duration
@@ -384,9 +586,17 @@ Page({
     var isPlayAudio = this.data.isPlayAudio;
     // console.log(isPlayAudio)
     var seek = this.data.audioSeek;
+    let animate=this.data.animateActive;
+    
     innerAudioContext.pause();
     //更改播放状态
-    this.setData({ isPlayAudio: !isPlayAudio })
+    this.setData({ 
+      isPlayAudio: !isPlayAudio ,
+      animateActive:!animate
+    })
+
+
+    console.log(this.data.animateActive)
     if (isPlayAudio) {
       //如果在播放则记录播放的时间seek，暂停
       this.setData({ audioSeek: innerAudioContext.currentTime });
@@ -453,6 +663,7 @@ Page({
    * 加载资源
    */
   getExhibitList: function (classifyId){
+    console.log(classifyId)
     var self = this ;
     wx.request({
       //url: 'http://localhost:8081/appsrv/api/ExhibitVo/get_exhibit_res',
@@ -460,6 +671,7 @@ Page({
       data: { classifyId: classifyId },
       method: 'GET',
       success: function (res) {
+        // console.log(res.data.data)
         self.setData({
           exhibitList: res.data.data
         })
